@@ -10,7 +10,7 @@ let scr = select('#score');
 let tmr = select('#timer');
 
 let life = 3;
-let score = 39;
+let score = 0;
 let level = 1;
 let timer = 10;
 let count;
