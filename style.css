@@ -95,7 +95,7 @@ h1 {
 }
 
 #ans {
-    width: 70%;
+    width: 0;
     padding: 5px 30px;
     font-size: 30pt;
     font-weight: bold;
@@ -104,6 +104,7 @@ h1 {
     background-color: #1c2833;
     border-radius: 50px;
     outline: none;
+    transition: 0.2s;
 }
 
 #ans:disabled {
