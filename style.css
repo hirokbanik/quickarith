@@ -1,0 +1,129 @@
+:root {
+    --green: #81C14Bcc;
+    --yellow: rgb(255, 226, 96);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-align: center;
+    /* border: 1px dotted #ffffff55; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* transition: 0.5s ease-out; */
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c2833;
+}
+
+.box {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+    min-height: 600px;
+    width: 400px;
+    border-radius: 20px;
+    background-color: #34495e;
+    /* border: 1px solid #81C14B; */
+    /* box-shadow: 0 4px 10px 0 var(--green); */
+}
+
+h1 {
+    grid-column: 1/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: 00;
+    color: rgb(151, 219, 95);
+}
+
+#life {
+    /* grid-column: 1/2; */
+    text-align: center;
+    font-size: 18pt;
+}
+
+#level {
+    /* grid-column: 1/2; */
+    text-align: center;
+    font-size: 18pt;
+}
+
+#timer {
+    grid-column: 1/4;
+    text-align: left;
+    font-size: 50pt;
+    display: flex;
+    justify-content: center;
+    color: #81C14B;
+}
+
+#score {
+    /* grid-column: 3/4; */
+    text-align: center;
+    font-size: 18pt;
+}
+
+.display {
+    grid-column: 1/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44pt;
+    font-weight: bold;
+}
+
+.ans-box {
+    grid-column: 1/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ans {
+    width: 70%;
+    padding: 5px 30px;
+    font-size: 30pt;
+    font-weight: bold;
+    color: #81C14B;
+    border: 2px solid #81C14B;
+    background-color: #1c2833;
+    border-radius: 50px;
+    outline: none;
+}
+
+#ans:disabled {
+    border-width: 0;
+}
+
+.btn-box {
+    grid-column: 1/4;
+    display: flex;
+    justify-content: center;
+}
+
+#btn {
+    padding: 0 20px;
+    min-width: 50%;
+    height: 50%;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    background-color: #81C14B;
+    font-size: 22pt;
+    text-transform: uppercase;
+}
