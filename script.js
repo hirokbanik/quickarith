@@ -10,7 +10,7 @@ let scr = select('#score');
 let tmr = select('#timer');
 
 let life = 3;
-let score = 0;
+let score = 39;
 let level = 1;
 let timer = 10;
 let count;
@@ -39,6 +39,11 @@ function load() {
         over();
         return;
     }
+    if (score == 40) {
+        over();
+        lvl.innerHTML = `Level<br>${level}`;
+        return;
+    }
 
     timer = 10;
     o.innerText = oArr[Math.floor(Math.random() * level)];
@@ -61,7 +66,7 @@ function unload() {
     o2.innerText = '';
     ans.style.width = '90%';
     ans.disabled = true;
-    ans.value = 'Game Over';
+    ans.value = level == 5 ? 'Congrats' : 'Game Over';
 
     life = 3;
     score = 0;
