@@ -8,6 +8,9 @@ let lyf = select('#life');
 let lvl = select('#level');
 let scr = select('#score');
 let tmr = select('#timer');
+let wrp = select('#wrapper');
+let btxnum = select('#btx-num');
+let btnSub = select('#btnSub');
 
 let life = 3;
 let score = 0;
@@ -22,7 +25,9 @@ btn.addEventListener('click', start);
 // Functions
 function start() {
     btn.removeEventListener('click', start);
-    btn.addEventListener('click', submit);
+    btnSub.addEventListener('click', submit);
+    btxnum.addEventListener('click', enterNumber);
+    wrp.style.transform = 'translateX(-100%)';
     ans.addEventListener('keyup', enter);
     ans.style.width = '70%';
 
@@ -54,7 +59,7 @@ function load() {
     o2.innerText = nums[1];
     ans.value = '';
     ans.disabled = false;
-    ans.focus();
+    // ans.focus();
     clearInterval(count);
     countDown();
 }
@@ -89,8 +94,10 @@ function countDown() {
 function over() {
     clearInterval(count);
     btn.innerText = 'PLAY AGAIN'
-    btn.removeEventListener('click', submit);
+    btnSub.removeEventListener('click', submit);
+    btxnum.removeEventListener('click', enterNumber);
     btn.addEventListener('click', start);
+    wrp.style.transform = 'translateX(0%)';
     ans.removeEventListener('click', enter);
     unload();
 }
@@ -138,6 +145,12 @@ function levelplus() {
 
 function enter(e) {
     if (e.keyCode == 13) submit();
+}
+
+function enterNumber(e) {
+    if (e.target.id != 'btnSub') ans.value += e.target.innerText;
+    // console.log(e.target.id != 'numSub')
+    // debugger
 }
 
 function submit() {
