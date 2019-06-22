@@ -11,6 +11,7 @@ let tmr = select('#timer');
 let wrp = select('#wrapper');
 let btxnum = select('#btx-num');
 let btnSub = select('#btnSub');
+let btnback = select('#btnback');
 
 let life = 3;
 let score = 0;
@@ -26,6 +27,7 @@ btn.addEventListener('click', start);
 function start() {
     btn.removeEventListener('click', start);
     btnSub.addEventListener('click', submit);
+    btnBack.addEventListener('click', backspace);
     btxnum.addEventListener('click', enterNumber);
     wrp.style.transform = 'translateX(-100%)';
     ans.addEventListener('keyup', enter);
@@ -95,6 +97,7 @@ function over() {
     clearInterval(count);
     btn.innerText = 'PLAY AGAIN'
     btnSub.removeEventListener('click', submit);
+    btnBack.removeEventListener('click', backspace);
     btxnum.removeEventListener('click', enterNumber);
     btn.addEventListener('click', start);
     wrp.style.transform = 'translateX(0%)';
@@ -148,7 +151,8 @@ function enter(e) {
 }
 
 function enterNumber(e) {
-    if (e.target.id != 'btnSub') ans.value += e.target.innerText;
+    if (e.target.id != 'btnSub' || e.target.id != 'btnback')
+        ans.value += e.target.innerText;
     // console.log(e.target.id != 'numSub')
     // debugger
 }
@@ -164,6 +168,10 @@ function submit() {
         }
     }
     load();
+}
+
+function backspace(e) {
+    ans.value = (ans.value).slice(0, -1);
 }
 
 function select(selector) {
