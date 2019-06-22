@@ -12,11 +12,12 @@ let wrp = select('#wrapper');
 let btxnum = select('#btx-num');
 let btnSub = select('#btnSub');
 let btnback = select('#btnback');
+const timerConst = 10;
 
 let life = 3;
 let score = 0;
 let level = 1;
-let timer = 10;
+let timer = timerConst;
 let count;
 let oArr = ['+', '-', '*', '/'];
 
@@ -52,7 +53,7 @@ function load() {
         return;
     }
 
-    timer = 10;
+    timer = timerConst;
     o.innerText = oArr[Math.floor(Math.random() * level)];
 
     let nums = generateNumber();
@@ -78,13 +79,14 @@ function unload() {
     life = 3;
     score = 0;
     level = 1;
-    timer = 10;
+    timer = timerConst;
 }
 
 function countDown() {
     tmr.innerText = timer;
     count = setInterval(() => {
         timer--;
+        // document.documentElement.style.setProperty('--primary-color', `var(--c${timer})`);
         tmr.innerText = timer;
         if (timer == 0) {
             clearInterval(count);
@@ -161,13 +163,27 @@ function submit() {
     let answer = eval(o1.innerText + o.innerText + o2.innerText);
     if (btn.innerText == 'SUBMIT') {
         if (answer == ans.value) {
+            showCorrect();
             score++;
             levelplus();
         } else {
+            showWrong();
             life--;
         }
     }
-    load();
+    setTimeout(load, 1000);
+}
+
+function showCorrect() {
+    tmr.innerText = '❤';
+    ans.value = '❤';
+    clearInterval(count);
+}
+
+function showWrong() {
+    tmr.innerText = '✖';
+    ans.value = '✖';
+    clearInterval(count);
 }
 
 function backspace(e) {
