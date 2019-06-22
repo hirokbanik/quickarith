@@ -13,6 +13,7 @@ let btxnum = select('#btx-num');
 let btnSub = select('#btnSub');
 let btnback = select('#btnback');
 const timerConst = 10;
+const canVibrate = 'vibrate' in navigator;
 
 let life = 3;
 let score = 0;
@@ -175,12 +176,14 @@ function submit() {
 }
 
 function showCorrect() {
+    // if(canVibrate) navigator.vibrate([100]);
     tmr.innerText = '❤';
     ans.value = '❤';
     clearInterval(count);
 }
 
 function showWrong() {
+    if (canVibrate) navigator.vibrate(100);
     tmr.innerText = '✖';
     ans.value = '✖';
     clearInterval(count);
